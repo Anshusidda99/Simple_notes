@@ -1,0 +1,73 @@
+/* src/styles/Profile.css */
+/* src/styles/Profile.css */
+
+body.profile-page {
+  background-color:#4f2121b7 ; /* 🌸 soft peach background */
+  margin: 0;
+  padding: 0;
+}
+
+
+.profile-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 30px;
+  background: linear-gradient(to bottom right, #fffdfa, #ffe7db); /* 👈 soft purple shade, change this to any color you like */
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-container h2 {
+  text-align: center;
+  color: #704141; /* title color */
+  margin-bottom: 20px;
+}
+
+.profile-details p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #704141;
+}
+
+
+.profile-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* Button style */
+.profile-buttons button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px;
+}
+
+.profile-buttons button:hover {
+  background-color: #388e3c;
+}
+
+.profile-btn {
+  background-color: #704141;     /* 🎨 Your theme color */
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #552d2d;     /* Darker on hover */
+}
