@@ -19,10 +19,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected 🎉"))
   .catch((err) => console.log("MongoDB Connection Error ❌", err));
 
-// ✅ Routes
-app.get("/", (req, res) => {
-  res.send("Welcome to Notes App Backend 💡");
-});
+
 
 app.use("/api/notes", noteroute);     // Notes CRUD
 app.use("/api/users", userRoutes);    // ✅ Fixed route
@@ -32,9 +29,12 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-const path = require("path");
-
 // Serve frontend build files
+const path = require("path");
 app.use(express.static(path.join(__dirname, "client", "build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 
