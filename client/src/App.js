@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import Login from "./pages/login";
 import Notes from "./pages/notes";
 import Profile from "./pages/Profile"; 
-// ✅ Import Register page
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/Reset";
 import Register from "./pages/Register";
-
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,62 +15,43 @@ function App() {
     setIsLoggedIn(!!token); // true if token exists
   }, []);
 
- 
-
   return (
     <Router>
-      {/* ✅ Logout & Profile button at top-right */}
-     {isLoggedIn && (
-  <div style={{
-    display: "flex",
-    justifyContent: "flex-end",
-    paddingRight: "20px",
-    marginTop: "40px",
-    marginRight: "60px" // 👈 pushes down from the top
-  }}>
-    <Link to="/profile" className="profile-btn">Profile</Link>
-
-  </div>
-)}
-
-
+      {/* ✅ Profile button at top-right */}
+      {isLoggedIn && (
+        <div style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          paddingRight: "20px",
+          marginTop: "40px",
+          marginRight: "60px"
+        }}>
+          <Link to="/profile" className="profile-btn">Profile</Link>
+        </div>
+      )}
 
       <Routes>
         <Route
           path="/"
-          element={
-            isLoggedIn ? <Notes /> : <Navigate to="/login" />
-          }
+          element={isLoggedIn ? <Notes /> : <Navigate to="/login" />}
         />
         <Route
           path="/login"
-          element={
-            isLoggedIn ? <Navigate to="/" /> : <Login setIsLoggedIn={setIsLoggedIn} />
-          }
+          element={isLoggedIn ? <Navigate to="/" /> : <Login setIsLoggedIn={setIsLoggedIn} />}
         />
-
         <Route
-  path="/register"
-  element={
-    isLoggedIn ? <Navigate to="/" /> : <Register setIsLoggedIn={setIsLoggedIn} />
-  }
-/>
-
-        <Route path="/profile" element={isLoggedIn ? <Profile /> : <Navigate to="/login" />} />
-
-
-
+          path="/register"
+          element={isLoggedIn ? <Navigate to="/" /> : <Register setIsLoggedIn={setIsLoggedIn} />}
+        />
+        <Route
+          path="/profile"
+          element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
+        />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-<Route path="/reset-password/:token" element={<ResetPassword/>} />
-
-         <Route
-  path="/profile"
-  element={isLoggedIn ? <Profile /> : <Navigate to="/login" />}
-/>
-        
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
     </Router>
   );
 }
 
-export default App;  
+export default App;

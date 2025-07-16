@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const bcrypt = require("../simple-note-backend/node_modules/bcryptjs/umd");
+const bcrypt = require("bcryptjs");
 
 const userSchema = mongoose.Schema(
   {
